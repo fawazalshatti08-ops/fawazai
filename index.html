@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>فواز — مخرج · مصور · منتج إبداعي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #f8f8f8;
+      --gray: #888;
+      --light-gray: #e8e8e8;
+      --font-ar: 'IBM Plex Sans Arabic', sans-serif;
+      --font-en: 'Playfair Display', serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-ar);
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 60px;
+      mix-blend-mode: normal;
+    }
+
+    nav.scrolled {
+      background: rgba(248,248,248,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .nav-logo {
+      font-family: var(--font-en);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: color .3s;
+    }
+
+    nav.scrolled .nav-logo { color: var(--black); }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: .85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      letter-spacing: .5px;
+      transition: color .3s;
+    }
+
+    nav.scrolled .nav-links a { color: var(--black); }
+    .nav-links a:hover { color: var(--white); }
+    nav.scrolled .nav-links a:hover { color: var(--gray); }
+
+    .nav-cta {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,.6);
+      padding: 10px 24px;
+      text-decoration: none;
+      letter-spacing: .5px;
+      transition: all .3s;
+    }
+
+    nav.scrolled .nav-cta {
+      color: var(--black);
+      border-color: var(--black);
+    }
+
+    .nav-cta:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    nav.scrolled .nav-cta:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 60px 80px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('fawaz.png') center center / cover no-repeat;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.88) 0%, rgba(0,0,0,.65) 50%, rgba(0,0,0,.72) 100%);
+    }
+
+    .hero-number {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-en);
+      font-size: clamp(180px, 25vw, 340px);
+      font-weight: 700;
+      color: rgba(255,255,255,.04);
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .hero-content { position: relative; z-index: 2; max-width: 900px; }
+
+    .hero-subtitle {
+      font-size: .9rem;
+      font-weight: 400;
+      color: rgba(255,255,255,.6);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: var(--font-en);
+      font-size: clamp(42px, 6vw, 88px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 30px;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,.55);
+      max-width: 500px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--white);
+      color: var(--black);
+      padding: 16px 40px;
+      font-size: .88rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: .5px;
+      transition: all .3s;
+    }
+
+    .btn-primary:hover {
+      background: var(--black);
+      color: var(--white);
+      outline: 1px solid var(--white);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,.4);
+      color: var(--white);
+      padding: 16px 40px;
+      font-size: .88rem;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: .5px;
+      transition: all .3s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,.1);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      right: 60px;
+      writing-mode: vertical-rl;
+      font-size: .75rem;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,.4);
+      text-transform: uppercase;
+    }
+
+    /* ── STATS ── */
+    #stats {
+      background: var(--black);
+      padding: 60px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+    }
+
+    .stat-item {
+      padding: 40px;
+      border-left: 1px solid #222;
+      text-align: center;
+    }
+
+    .stat-item:first-child { border-left: none; }
+
+    .stat-number {
+      font-family: var(--font-en);
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 700;
+      color: var(--white);
+      display: block;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: .8rem;
+      color: var(--gray);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 8px;
+      display: block;
+    }
+
+    /* ── FEATURED ── */
+    #featured {
+      padding: 120px 60px;
+    }
+
+    .section-tag {
+      font-size: .75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-en);
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 400;
+      margin-bottom: 60px;
+      line-height: 1.2;
+    }
+
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--black);
+      overflow: hidden;
+    }
+
+    .featured-image {
+      aspect-ratio: 4/3;
+      background: #1e1e1e;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+
+    .featured-card:hover .featured-image img { transform: scale(1.04); }
+
+    .featured-info {
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: var(--white);
+    }
+
+    .featured-year {
+      font-size: .8rem;
+      color: var(--gray);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .featured-title {
+      font-family: var(--font-en);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .featured-desc {
+      font-size: .92rem;
+      color: rgba(255,255,255,.55);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .btn-white {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,.3);
+      color: var(--white);
+      padding: 14px 36px;
+      font-size: .85rem;
+      font-weight: 500;
+      text-decoration: none;
+      align-self: flex-start;
+      transition: all .3s;
+    }
+
+    .btn-white:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* ── INSTAGRAM FEED ── */
+    #work {
+      padding: 80px 60px 120px;
+    }
+
+    .work-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 50px;
+    }
+
+    .ig-profile-bar {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 60px;
+      padding: 24px 32px;
+      border: 1px solid var(--light-gray);
+      background: var(--white);
+    }
+
+    .ig-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: white;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .ig-profile-info { flex: 1; }
+
+    .ig-handle {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+
+    .ig-bio { font-size: .82rem; color: var(--gray); }
+
+    .ig-follow-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366);
+      color: white;
+      padding: 12px 28px;
+      font-size: .85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity .3s;
+      white-space: nowrap;
+    }
+
+    .ig-follow-btn:hover { opacity: .88; }
+
+    .ig-embeds-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .ig-embeds-grid .instagram-media {
+      min-width: unset !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+    }
+
+    .ig-cta-bar {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (max-width: 900px) {
+      .ig-embeds-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .ig-embeds-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--black);
+      padding: 120px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-image {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: #1e1e1e;
+      overflow: hidden;
+    }
+
+    .about-image-accent {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 60%;
+      height: 60%;
+      border: 1px solid rgba(255,255,255,.1);
+      pointer-events: none;
+    }
+
+    .about-content { color: var(--white); }
+
+    .about-birthdate {
+      font-size: .8rem;
+      color: var(--gray);
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+    }
+
+    .about-text {
+      font-size: 1rem;
+      color: rgba(255,255,255,.65);
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+
+    .about-text strong { color: var(--white); font-weight: 600; }
+
+    .timeline {
+      margin-top: 50px;
+      border-top: 1px solid #222;
+      padding-top: 40px;
+    }
+
+    .timeline-title {
+      font-size: .75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 24px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 20px;
+      align-items: baseline;
+    }
+
+    .timeline-year {
+      font-family: var(--font-en);
+      font-size: .85rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.3);
+      min-width: 50px;
+    }
+
+    .timeline-event {
+      font-size: .88rem;
+      color: rgba(255,255,255,.6);
+      line-height: 1.5;
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      padding: 120px 60px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .service-card {
+      padding: 40px 32px;
+      border: 1px solid var(--light-gray);
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--black);
+      transform: translateY(100%);
+      transition: transform .4s ease;
+      z-index: 0;
+    }
+
+    .service-card:hover::before { transform: translateY(0); }
+
+    .service-number {
+      font-family: var(--font-en);
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--gray);
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+      transition: color .3s;
+    }
+
+    .service-card:hover .service-number { color: rgba(255,255,255,.4); }
+
+    .service-name {
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+      transition: color .3s;
+    }
+
+    .service-card:hover .service-name { color: var(--white); }
+
+    .service-desc {
+      font-size: .82rem;
+      color: var(--gray);
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+      transition: color .3s;
+    }
+
+    .service-card:hover .service-desc { color: rgba(255,255,255,.5); }
+
+    /* ── CLIENTS ── */
+    #clients {
+      background: var(--black);
+      padding: 100px 60px;
+    }
+
+    #clients .section-title { color: var(--white); }
+    #clients .section-tag { color: var(--gray); }
+
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      margin-top: 60px;
+    }
+
+    .client-item {
+      padding: 36px 24px;
+      border: 1px solid #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: border-color .3s;
+    }
+
+    .client-item:hover { border-color: #333; }
+
+    .client-name {
+      font-size: .85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,.35);
+      letter-spacing: .5px;
+      transition: color .3s;
+    }
+
+    .client-item:hover .client-name { color: rgba(255,255,255,.75); }
+
+    /* ── CONTACT ── */
+    #contact {
+      padding: 120px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .contact-info {}
+
+    .contact-big {
+      font-family: var(--font-en);
+      font-size: clamp(36px, 4vw, 60px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 30px;
+    }
+
+    .contact-text {
+      font-size: .92rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--black);
+      font-size: .9rem;
+      font-weight: 500;
+      transition: color .3s;
+    }
+
+    .contact-link:hover { color: var(--gray); }
+
+    .contact-link-icon {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .8rem;
+    }
+
+    /* FORM */
+    .contact-form { }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-field {
+      margin-bottom: 16px;
+    }
+
+    .form-field label {
+      display: block;
+      font-size: .75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      border: 1px solid var(--light-gray);
+      background: transparent;
+      padding: 14px 16px;
+      font-family: var(--font-ar);
+      font-size: .9rem;
+      color: var(--black);
+      outline: none;
+      transition: border-color .3s;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus { border-color: var(--black); }
+
+    .form-field textarea { resize: vertical; min-height: 140px; }
+
+    .btn-send {
+      width: 100%;
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      padding: 18px;
+      font-family: var(--font-ar);
+      font-size: .92rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+      cursor: pointer;
+      transition: background .3s;
+    }
+
+    .btn-send:hover { background: #222; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      padding: 40px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    .footer-logo {
+      font-family: var(--font-en);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .footer-copy {
+      font-size: .78rem;
+      color: var(--gray);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-social {
+      font-size: .78rem;
+      color: rgba(255,255,255,.4);
+      text-decoration: none;
+      letter-spacing: .5px;
+      transition: color .3s;
+    }
+
+    .footer-social:hover { color: var(--white); }
+
+    /* ── MOBILE ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--white);
+      transition: background .3s;
+    }
+
+    nav.scrolled .hamburger span { background: var(--black); }
+
+    @media (max-width: 1024px) {
+      #stats { grid-template-columns: repeat(2, 1fr); }
+      .featured-card { grid-template-columns: 1fr; }
+      .work-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .clients-grid { grid-template-columns: repeat(3, 1fr); }
+      #about { grid-template-columns: 1fr; gap: 60px; }
+      #contact { grid-template-columns: 1fr; gap: 60px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      #hero { padding: 0 24px 60px; }
+      .hero-scroll { display: none; }
+
+      #stats { padding: 40px 24px; }
+      .stat-item { padding: 24px; border-left: none; border-top: 1px solid #222; }
+      .stat-item:first-child { border-top: none; }
+
+      #featured, #work, #services, #clients, #contact { padding: 80px 24px; }
+      #about { padding: 80px 24px; }
+      footer { padding: 30px 24px; flex-direction: column; gap: 16px; text-align: center; }
+
+      .work-header { flex-direction: column; gap: 20px; align-items: flex-start; }
+      .work-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .clients-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">Fawaz Al-Shatti</a>
+    <ul class="nav-links">
+      <li><a href="#work">الأعمال</a></li>
+      <li><a href="#about">عني</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">تواصل معي</a>
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-number">F</div>
+    <div class="hero-content">
+      <p class="hero-subtitle">من الفكرة إلى الواقع.. سحر الذكاء الاصطناعي</p>
+      <h1 class="hero-title">Fawaz<br>Al-Shatti</h1>
+      <p class="hero-desc">
+        Ai video creator
+      </p>
+      <div class="hero-actions">
+        <a href="#work" class="btn-primary">استعرض الأعمال</a>
+        <a href="#contact" class="btn-outline">تواصل معي</a>
+      </div>
+    </div>
+    <p class="hero-scroll">مرّر للأسفل</p>
+  </section>
+
+
+  <!-- FEATURED -->
+  <section id="featured">
+    <p class="section-tag">المشروع المميز</p>
+    <h2 class="section-title">أحدث الأعمال</h2>
+
+    <div class="featured-card">
+      <div class="featured-image">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'Playfair Display',serif;font-size:72px;color:rgba(255,255,255,.08);font-weight:700;">F</span>
+        </div>
+      </div>
+      <div class="featured-info">
+        <span class="featured-year">2024 · إخراج</span>
+        <h3 class="featured-title">The Last Frame</h3>
+        <p class="featured-desc">
+          فيلم قصير يستعرض رحلة مصور حرب يبحث عن الجمال في أكثر اللحظات قتامة. حاز جائزة أفضل إخراج في مهرجان الخليج السينمائي.
+        </p>
+        <a href="#" class="btn-white">عرض المشروع</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM FEED -->
+  <section id="work">
+    <div class="work-header">
+      <div>
+        <p class="section-tag">بوستات الإنستغرام</p>
+        <h2 class="section-title">@aibyfawaz</h2>
+      </div>
+    </div>
+
+    <!-- Profile Bar -->
+    <div class="ig-profile-bar">
+      <div class="ig-avatar">F</div>
+      <div class="ig-profile-info">
+        <p class="ig-handle">@aibyfawaz</p>
+        <p class="ig-bio">Fawaz AlShatti · AI Video Creator · 46 منشور · 3,279 متابع</p>
+      </div>
+      <a href="https://www.instagram.com/aibyfawaz/" target="_blank" class="ig-follow-btn">
+        ◈ &nbsp;تابع على إنستغرام
+      </a>
+    </div>
+
+    <!-- Real Instagram Embeds Grid -->
+    <div class="ig-embeds-grid">
+
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DWhCdpRjHj7/" data-instgrm-version="14"></blockquote>
+
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DVLoHoYjJQi/" data-instgrm-version="14"></blockquote>
+
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DYg2wyYMnZZ/" data-instgrm-version="14"></blockquote>
+
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DYgpIQzs0Zs/" data-instgrm-version="14"></blockquote>
+
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DYaJM9_Mcfk/" data-instgrm-version="14"></blockquote>
+
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DYT6vZMsK5n/" data-instgrm-version="14"></blockquote>
+
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DYO9uI1s7g_/" data-instgrm-version="14"></blockquote>
+
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DYKaKFEsOTC/" data-instgrm-version="14"></blockquote>
+
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DX_b1iEspDU/" data-instgrm-version="14"></blockquote>
+
+    </div>
+
+    <div class="ig-cta-bar">
+      <a href="https://www.instagram.com/aibyfawaz/" target="_blank" class="ig-follow-btn" style="padding:16px 48px;font-size:.9rem;">
+        ◈ &nbsp;شاهد كل البوستات على إنستغرام
+      </a>
+    </div>
+  </section>
+
+  <script async src="//www.instagram.com/embed.js"></script>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-image-wrap">
+      <div class="about-image" style="background:#111;">
+        <img src="fawaz.png" alt="Fawaz Al-Shatti" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+      </div>
+      <div class="about-image-accent"></div>
+    </div>
+    <div class="about-content">
+      <p class="section-tag" style="color:var(--gray);">من أنا</p>
+      <h2 class="section-title" style="color:var(--white);margin-bottom:24px;">فواز عدنان الشطي</h2>
+      <p class="about-text">
+        أنا مهتم ومتخصص في مجال <strong>الذكاء الاصطناعي</strong>، وعملت على تطوير معرفتي من خلال دورات تدريبية ومشاريع تطبيقية عززت فهمي العملي لتقنيات الذكاء الاصطناعي واستخداماتها.
+      </p>
+      <p class="about-text">
+        لدي اهتمام بتوظيف الذكاء الاصطناعي في <strong>حل المشكلات</strong>، تحسين الكفاءة، وتحليل البيانات ودعم اتخاذ القرار.
+      </p>
+      <p class="about-text">
+        أحرص على التعلم المستمر ومواكبة التطورات التقنية، وأمتلك القدرة على التعلم السريع والعمل ضمن بيئات تتطلب الابتكار والتطوير المستمر.
+      </p>
+    </div>
+  </section>
+
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-info">
+      <p class="section-tag">هل أنت مهتم؟</p>
+      <h2 class="contact-big">لنبني<br>شيئاً<br>رائعاً</h2>
+      <p class="contact-text">
+        سواء كان مشروعاً سينمائياً، حملة إعلانية، أو تعاوناً إبداعياً — أنا هنا للاستماع ومناقشة أفكارك.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:fawazalshatti08@gmail.com" class="contact-link">
+          <span class="contact-link-icon">✉</span>
+          fawazalshatti08@gmail.com
+        </a>
+        <a href="https://wa.me/96597771347" class="contact-link">
+          <span class="contact-link-icon">📱</span>
+          واتساب
+        </a>
+        <a href="https://instagram.com/fawaz" class="contact-link">
+          <span class="contact-link-icon">◈</span>
+          Instagram
+        </a>
+      </div>
+    </div>
+
+    <form class="contact-form" onsubmit="return false;">
+      <div class="form-row">
+        <div class="form-field">
+          <label>الاسم</label>
+          <input type="text" placeholder="اسمك الكريم" />
+        </div>
+        <div class="form-field">
+          <label>البريد الإلكتروني</label>
+          <input type="email" placeholder="email@example.com" />
+        </div>
+      </div>
+      <div class="form-field">
+        <label>نوع المشروع</label>
+        <input type="text" placeholder="إخراج / تصوير / حملة إعلانية ..." />
+      </div>
+      <div class="form-field">
+        <label>رسالتك</label>
+        <textarea placeholder="أخبرني عن مشروعك ..."></textarea>
+      </div>
+      <button type="submit" class="btn-send">إرسال الرسالة</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="footer-logo">Fawaz</a>
+    <p class="footer-copy">© 2024 فواز · جميع الحقوق محفوظة</p>
+    <div class="footer-socials">
+      <a href="#" class="footer-social">Instagram</a>
+      <a href="mailto:fawazalshatti08@gmail.com" class="footer-social">fawazalshatti08@gmail.com</a>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .work-item, .client-item, .stat-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity .6s ease, transform .6s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
